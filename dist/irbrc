@@ -1,0 +1,11 @@
+#! /usr/bin/env ruby
+
+require 'irb/completion'        # Discover object methods with double-TAB
+require 'irb/ext/save-history'  # Enable console history
+require 'pp'                    # Pretty print (explore objects)
+
+IRB.conf[:AUTO_INDENT] = true   # Turn on auto-tabbing
+IRB.conf[:SAVE_HISTORY] = 100   # Max history entries
+
+# Move history file
+# IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.tmp/irb-history"

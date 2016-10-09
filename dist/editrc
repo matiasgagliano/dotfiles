@@ -1,0 +1,12 @@
+#
+# Editline settings
+#
+
+# Bind all keys to the standard vi-like bindings.
+bind -v
+
+# Bind Ctrl-R to reverse history search
+bind "^r" em-inc-search-prev
+
+# Tab autocompletion
+bind \\t rl_complete
