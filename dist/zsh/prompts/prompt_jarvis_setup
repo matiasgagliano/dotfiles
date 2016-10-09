@@ -1,0 +1,105 @@
+#
+# Zsh prompt:
+#  _____
+# /\___ \                            __
+# \/__/\ \     __     _ __   __  __ /\_\    ____
+#    _\ \ \  /'__`\  /\`'__\/\ \/\ \\/\ \  /',__\
+#   /\ \_\ \/\ \L\.\_\ \ \/ \ \ \_/ |\ \ \/\__, `\
+#   \ \____/\ \__/.\_\\ \_\  \ \___/  \ \_\/\____/
+#    \/___/  \/__/\/_/ \/_/   \/__/    \/_/\/___/   v0.0.1
+#
+#
+#  Copyright 2016, Matías A. Gagliano.
+#  Dual licensed under the MIT or GPLv3 licenses.
+#  http://opensource.org/licenses/MIT
+#  http://opensource.org/licenses/GPL-3.0
+#
+#
+
+# Zsh docs
+# http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+# http://zsh.sourceforge.net/Doc/Release/User-Contributions.html#Prompt-Themes
+
+# Terminal colors (16)
+#
+# 0: black     4: blue        8: bright black     12: bright blue
+# 1: red       5: magenta     9: bright red       13: bright magenta
+# 2: green     6: cyan       10: bright green     14: bright cyan
+# 3: yellow    7: white      11: bright yellow    15: bright white
+
+
+
+# Version control
+# ===============
+
+# http://zsh.sourceforge.net/Doc/Release/User-Contributions.html#Version-Control-Information
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr     '*'
+zstyle ':vcs_info:git:*' unstagedstr   '*'
+zstyle ':vcs_info:git:*' actionformats '%b%c%u|%a'
+zstyle ':vcs_info:git:*' formats       '%b%c%u'
+
+
+prompt_git_info () {
+  vcs_info
+
+  if [[ -n $vcs_info_msg_0_ ]]; then
+    # If both %c and %u are shown, display only one '*'
+    echo "%F{13}(${vcs_info_msg_0_:s/\*\*/\*/})%f"
+  else
+    echo ' '
+  fi
+}
+
+
+
+# Helpers
+# =======
+
+# Prompt symbol. UTF8 codes { '>': 0x276F, '<': 0x276E }
+prompt_symbol () {
+  if [[ -z $IN_A_TTY ]]; then f='❯'; b='❮'; else f='>'; b='<'; fi
+
+  if [[ "${KEYMAP}" == "vicmd" ]]; then
+    echo "%B%F{1}%(!.${b}${b}${b}.${b})%f%b"
+  else
+    echo "%B%F{4}%(!.${f}${f}${f}.${f})%f%b"
+  fi
+}
+
+# Display a "lightning" when over SSH
+prompt_ssh () {
+  if [[ -z $IN_A_TTY ]]; then s='⚡'; else s='@ '; fi
+  [[ -n "$SSH_CLIENT" ]] && echo " %B%F{3}${s}%f%b "
+}
+
+
+
+# Theme
+# =====
+
+prompt_jarvis_precmd () {
+  # Prompt strings
+  # http://zsh.sourceforge.net/Doc/Release/Parameters.html
+  unset PROMPT RPROMPT PS1 PS2 PS3 PS4
+
+  # Primary prompt string, printed before a command is read
+  PS1='$(prompt_ssh)%B%F{4}%3~%f%b$(prompt_git_info)$(prompt_symbol) '
+
+  # Printed when more information is needed to complete a command (open quotations, etc.)
+  if [[ -z $IN_A_TTY ]]; then arrow='↳'; else arrow='%_'; fi
+  PS2=' %B%F{12}${arrow}%f%b $(prompt_symbol) '
+
+  # Selection prompt used within a `select` loop
+  PS3='? $(prompt_symbol) '
+}
+
+prompt_jarvis_setup () {
+  add-zsh-hook precmd prompt_jarvis_precmd
+}
+
+prompt_jarvis_setup "$@"
+
+# vim: ft=zsh

@@ -1,0 +1,12 @@
+# Add an alias/shortcut to `cd` into a folder with autocompletion.
+# Usage: foldershortcut [alias] [folder]
+foldershortcut () {
+  # Don't add the alias if the folder doesn't exist
+  if [[ -d $2 ]]; then
+    eval "$1()  { cd $2/\$1; }"
+    eval "_$1() { _files -W $2 -/; }"
+    compdef _$1 $1
+  fi
+}
+
+# vim: ft=zsh

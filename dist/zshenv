@@ -1,0 +1,5 @@
+# Move ZSH's dotfiles directory (cleaner home)
+ZDOTDIR=$HOME/.zsh
+
+# Source the .zshenv file in the new $ZDOTDIR
+source $ZDOTDIR/.zshenv

@@ -1,0 +1,39 @@
+# Bind keys in multiple keymaps/modes (emacs, viins, vicmd) at once.
+# Flags: -e (emacs), -i (viins), -c (vicmd).
+#
+# Usage:
+#   # Bind <Ctrl-A> in emacs and vi insert mode at the same time.
+#   bind -ie '^A' do-something
+#
+bind () {
+  local -a keymaps
+  local flag keymap sequence widget
+
+  # Loop through arguments
+  for arg; do
+    # Continue if it's not a flag
+    [[ $arg == ${arg#-} ]] && continue
+
+    # Break joined flags (check each character in the flag)
+    for ((i=1; i <= ${#arg}; i++)); do
+      case $arg[$i] in
+        e) keymaps+=('emacs') ;;
+        i) keymaps+=('viins') ;;
+        c) keymaps+=('vicmd') ;;
+      esac
+    done
+
+    # It's a flag, move positional parameters ($1, $2, etc.) one place forward
+    shift
+  done
+
+  sequence="$1"
+  widget="$2"
+  [[ -z "$sequence" ]] && return 1
+
+  for keymap in $keymaps; do
+    bindkey -M "$keymap" "$sequence" "$widget"
+  done
+}
+
+# vim: ft=zsh

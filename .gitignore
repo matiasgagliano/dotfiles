@@ -1,1 +1,15 @@
+# ZSH
+# ===
+
+# Ignore plugins
+/dist/zsh/zgen
+
+# Ignore tmp files
+/dist/zsh/tmp
+!/dist/zsh/tmp/.keep
+
+
+# Other
+# =====
+
 /notes
