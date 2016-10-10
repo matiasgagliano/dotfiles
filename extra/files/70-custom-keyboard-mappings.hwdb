@@ -1,0 +1,20 @@
+#
+# Keyboard mappings
+#
+# Map scancodes to keycodes
+# https://wiki.archlinux.org/index.php/Map_scancodes_to_keycodes
+#
+# Keyboard mapping of scan codes to key codes
+# See file: /usr/lib/udev/hwdb.d/60-keyboard.hwdb
+#
+# After any changes, to load the new rules execute (as root):
+#   udevadm hwdb --update
+#   udevadm trigger /dev/input/event*
+
+# Bind Caps Lock to Escape on built-in keyboards (match all AT keyboards)
+evdev:atkbd:dmi:bvn*:bvr*:bd*:svn*:pn*
+ KEYBOARD_KEY_3a=esc
+
+# Bind Caps Lock to Escape on Microsoft USB keyboard
+evdev:input:b0003v045Ep00F1* 
+ KEYBOARD_KEY_70039=esc

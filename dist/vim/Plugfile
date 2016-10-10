@@ -1,0 +1,48 @@
+" vim: ft=vim
+
+" Vim plugins
+" ===========
+
+" Core utilities
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-vinegar'
+Plug 'mbbill/undotree'
+Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-surround'
+Plug 'junegunn/vim-easy-align'
+Plug 'gagoar/StripWhiteSpaces'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'craigemery/vim-autotag'
+Plug 'ConradIrwin/vim-bracketed-paste'
+
+
+" Integration
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+
+
+" Syntax
+Plug 'tpope/vim-git',             { 'for': 'git' }
+Plug 'othree/html5.vim',          { 'for': 'html' }
+Plug 'isRuslan/vim-es6',          { 'for': 'javascript' }
+Plug 'kchmck/vim-coffee-script',  { 'for': 'coffee' }
+Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
+Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
+Plug 'Slava/vim-spacebars',       { 'for': ['spacebars', 'mustache', 'handlebars'] }
+Plug 'voxpupuli/vim-puppet',      { 'for': 'puppet' }
+Plug 'elixir-lang/vim-elixir',    { 'for': 'elixir' }
+
+
+" UI
+Plug 'chriskempson/base16-vim'
+" Plug 'godlygeek/csapprox'

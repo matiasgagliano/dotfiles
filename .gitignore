@@ -9,6 +9,27 @@
 !/dist/zsh/tmp/.keep
 
 
+# Vim
+# ===
+
+# Ignore plugins
+/dist/vim/autoload/plug.vim
+/dist/vim/bundle/*
+!/dist/vim/bundle/.keep
+
+# Ignore spell folder
+/dist/vim/spell
+
+# Ignore tmp files (keep subfolders)
+/dist/vim/tmp/*
+!/dist/vim/tmp/backup/
+/dist/vim/tmp/backup/*
+!/dist/vim/tmp/backup/.keep
+!/dist/vim/tmp/undo/
+/dist/vim/tmp/undo/*
+!/dist/vim/tmp/undo/.keep
+
+
 # Other
 # =====
 
