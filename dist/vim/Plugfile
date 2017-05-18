@@ -23,12 +23,14 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 
 
 " Integration
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
+Plug 'c-brenn/phoenix.vim'
 
 
 " Syntax

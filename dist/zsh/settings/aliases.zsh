@@ -88,3 +88,10 @@ if (( ${+commands[rails]} )); then
   alias rgm='rails generate migration'
   alias rs='rails server'
 fi
+
+# Elixir
+if (( ${+commands[iex]} )) && (( ${+commands[rlwrap]} )); then
+  # Put `iex` in a Readline wrapper to enable Vi bindings from .inputrc
+  # To run iex WITHOUT rlwrap use: \iex
+  alias iex='rlwrap -a iex'
+fi
