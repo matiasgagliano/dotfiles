@@ -1,6 +1,6 @@
 # Add an alias/shortcut to `cd` into a folder with autocompletion.
-# Usage: foldershortcut [alias] [folder]
-foldershortcut () {
+# Usage: folder_shortcut [alias] [folder]
+folder_shortcut () {
   # Don't add the alias if the folder doesn't exist
   if [[ -d $2 ]]; then
     eval "$1()  { cd $2/\$1; }"

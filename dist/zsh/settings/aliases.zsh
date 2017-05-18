@@ -50,12 +50,12 @@ alias cpp='rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress'
 alias dotfiles="${EDITOR} ${HOME}/dotfiles"
 
 # Shortcuts to `cd` into folders with autocompletion.
-# Custom function: foldershortcut [alias] [folder]
-autoload -Uz 'foldershortcut'
-foldershortcut c  ~/code
-foldershortcut cr ~/code/ruby
-foldershortcut cj ~/code/js
-foldershortcut ce ~/code/elixir
+# Custom function: folder_shortcut [alias] [folder]
+autoload -Uz 'folder_shortcut'
+folder_shortcut c  ~/code
+folder_shortcut cj ~/code/js
+folder_shortcut cr ~/code/ruby
+folder_shortcut ce ~/code/elixir
 
 
 
