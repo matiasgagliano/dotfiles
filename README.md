@@ -8,20 +8,20 @@ Dotfiles
 
   ```sh
   # CLI vim that comes with gvim has clipboard support
-  pacman -S git zsh tmux gvim ctags the_silver_searcher
+  pacman -S curl git zsh tmux gvim ctags the_silver_searcher pkgfile
   ```
 
 - Debian
 
   ```sh
-  apt-get install git zsh tmux vim exuberant-ctags silversearcher-ag
+  apt-get install curl git zsh tmux vim exuberant-ctags silversearcher-ag
   ```
 
 - CentOS
 
   ```sh
   # Install tmux 2.x from source, see the notes below
-  yum install git zsh vim-enhanced ctags
+  yum install curl git zsh vim-enhanced ctags
   ```
 
 
@@ -58,6 +58,13 @@ sh ~/dofiles/init.sh
   Copy `~/dotfiles/extra/files/70-custom-keyboard-mappings.hwdb`
   into `/etc/udev/hwdb.d`.
 
+- When using `pkgfile`, enable its `systemd` timer to automatically
+  synchronize the files database:
+
+  ```sh
+  systemctl enable --now pkgfile-update.timer
+  ```
+
 
 ## License
 
@@ -72,7 +79,7 @@ Dual licensed under the MIT or GPLv3 licenses.
 
 This repository was possible by [standing in the sholders of giants][1] and is
 hereby released to allow others to base their work on it. Beyond that keep in
-mind that this are my personal *dotfiles*, bug reports might be appreciated but
-no feature request, enhancement or extension will be accepted.
+mind that this are my personal *dotfiles*, bug reports and some enhancements
+might be appreciated but no feature requests.
 
 [1]: https://en.wikipedia.org/wiki/Standing_on_the_shoulders_of_giants
