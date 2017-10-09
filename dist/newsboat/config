@@ -1,0 +1,39 @@
+#
+# Newsbeuter settings
+#
+
+# General
+# =======
+
+auto-reload yes
+browser firefox
+cleanup-on-quit yes
+feed-sort-order title-dec
+refresh-on-startup yes
+reload-time 20
+reload-threads 2
+show-read-articles yes
+show-read-feeds yes
+
+
+# Notifications
+# =============
+
+notify-always no
+# notify-format "newsboat: %n unread articles within %f unread feeds"
+# notify-program notify-send
+# notify-xterm yes
+# notify-screen yes
+
+
+# Key bindings
+# ============
+
+unbind-key j
+unbind-key k
+unbind-key J
+unbind-key K
+bind-key j next
+bind-key k prev
+bind-key J next-feed
+bind-key K prev-feed

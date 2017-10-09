@@ -30,6 +30,14 @@
 !/dist/vim/tmp/undo/.keep
 
 
+# Newsboat
+# ========
+
+/dist/newsboat/*
+!/dist/newsboat/config
+!/dist/newsboat/urls
+
+
 # Other
 # =====
 
