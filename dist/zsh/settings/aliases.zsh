@@ -49,6 +49,9 @@ alias cpp='rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress'
 # Open the 'dotfiles' folder with the default editor.
 alias dotfiles="${EDITOR} ${HOME}/dotfiles"
 
+# Open personal wiki folder with the default editor.
+alias wiki="${EDITOR} ${HOME}/wiki"
+
 # Shortcuts to `cd` into folders with autocompletion.
 # Custom function: folder_shortcut [alias] [folder]
 autoload -Uz 'folder_shortcut'
